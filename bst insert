@@ -1,0 +1,74 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+struct Node {
+	int data;
+	struct Node *left;
+	struct Node *right;
+};
+
+struct Node* createNode(int value) {
+	struct Node *newNode = (struct Node*)malloc(sizeof(struct Node));
+	
+	if(newNode == NULL){
+		printf("Memory allocation failed.\n");
+		exit(1);
+	}
+	
+	newNode->data = value;
+	newNode->left = NULL;
+	newNode->right = NULL;
+	
+	return newNode;
+}
+struct Node*insert(struct Node *root,int value){
+	if(root == NULL){
+	
+	return createNode(value);
+}
+if(value<root->data){
+	root->left = insert(root->left,value);
+}
+else if(value>root->data){
+	root->right = insert(root->right,value)
+}
+else {
+	printf("Duplicate value %d ignored.\n",value);
+}
+
+return root;
+}
+
+void inorder(struct Node*root)
+{
+	if(root != NULL){
+		inorder(root->left);
+		printf("%d",root->data);
+		inorder(root->right);
+	}
+}
+
+void freeTree(struct Node *root)
+{
+	if (root!= NULL)
+	{
+		freeTree(root->left);
+		freeTree(root->right);
+		free(root);
+	}
+}
+int main()
+{
+	struct Node *root = NULL;
+	int n,value,i;
+	printf("Enter number odf elements:");
+	scanf("%d",&n);
+	
+	printf("Enter elements:\n");
+	
+	for(i = 0; i<n;i++)
+	{
+		scanf("%d",&value);
+		root = insert(root,value)
+	}
+}
