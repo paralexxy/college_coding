@@ -1,0 +1,106 @@
+#include <iostream>
+using namespace std;
+class Base 
+{
+    private:
+        int a;
+    public:
+        int b;
+        void get_ab();
+        int get_a();
+        void show_a();
+};
+class derived : public Base
+{
+    private:
+        int c;
+    public:
+        void multi();
+        void display();
+};
+void Base :: get_ab()
+{
+    cout << "Enter the no.";
+    cin >> a;
+    cin >> b;
+}
+int Base :: get_a()
+{
+    return a;
+}
+void Base :: show_a()
+{
+    cout << "A=" << a << endl;
+}
+void derived :: multi()
+{
+    c = b * get_a();
+}
+void derived :: display()
+{
+    cout << "A=" << get_a() << endl;
+}
+int main()
+{
+    derived obj;
+    obj.get_ab();
+    obj.multi();
+    obj.show_a();
+    obj.display();
+    obj.b = 100;
+    obj.multi();
+    obj.display();
+    return 0;
+}
+
+
+
+
+
+
+
+//private 
+#include <iostream>
+using namespace std;
+
+class B
+{
+    int a;
+     public:
+        int b;
+        void get_ab();
+        int get_a(void);
+        void show_a(void);
+};
+class D : private B
+{
+    int c;
+    public:
+        void mul(void);
+        void display(void);
+};
+void B :: get_ab(void)
+{
+    
+    cout << "Enter values for a and b:";
+    cin >> a >> b;
+}
+int B :: get_a()
+{
+    return a;
+}
+void B :: show_a()
+{
+    cout << "a= " << a << "\n";
+}
+void D :: mul()
+{
+    get_ab();
+    c = b *get_a();
+}
+void D :: display()
+{
+    show_a();
+    cout << "b = " << b << "\n"
+        << "c = " << c << 
+}
