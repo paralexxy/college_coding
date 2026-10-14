@@ -1,0 +1,37 @@
+#include <stdio.h>
+#define MAX 5
+int deque[MAX];
+int front = -1;
+int rear = -1;
+int isFull()
+{
+	return((front == 0 && rear == MAX -1)) ||
+	 (front == rear+1));
+}
+int isEmpty()
+{
+	return front == -1;
+}
+void insertFront(int value)
+{
+	if(isFull())
+	{
+		printf("Deque Overflow.\n");
+		return;
+	}
+	if(isEmpty())
+	{
+		front = rear = 0;
+	}
+	else if(front == 0)
+	{
+		front = MAX-1;
+	}
+	else 
+	{
+		front--;
+	}
+	deque[front] = value;
+	printf("%d inserted at front .\n",value);
+}
+void 
