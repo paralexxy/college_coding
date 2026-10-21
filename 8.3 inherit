@@ -1,0 +1,107 @@
+#include <iostream>
+using namespace std;
+
+class staff{
+	int code;
+	string name;
+	public:
+		void put_code(){
+			cout << code;
+		}
+		void put_name(){
+			cout << name;
+		}
+		void get_data(){
+			cout << "Enter id = " ;cin>> code;
+			cout << "Enter name = ";cin >> name;
+		}
+		void display(){
+			cout << "Id = " << put_code();
+			cout << "name = " << put_name();
+	}
+};
+class teacher:public staff
+{
+	string subjet;
+	string publication;
+	public:
+		void put_subject()
+		{
+			cout << subject;
+		}
+		void put_publication{
+			cout << put_publication;
+		}
+		
+		void get_data(){
+			staff::get_data();
+			cout << "Subject = " << put_subject;
+			cout << "Publication = " << put_publication;
+		}
+		
+		void display(){
+			staff::display();
+			cout << "subject =" << put_subject();
+			cout << "publication = " << put_publication();
+		}
+};
+class typist:public staff{
+	int speed;
+	public:
+		void put_speed(){
+			cout << speed;
+		}
+		
+};
+class officer:public officer
+{
+	char grade;	
+	public:
+		void put_grade(){
+			cout << grade;
+		}
+		void  get_data(){
+			cout << "Enter grade of officer:";cin >> grade;
+		}
+		void display(){
+			staff::display();			
+			cout << "grade = " << put_grade();
+		}
+};
+class regular:public typist{
+	int monthly_wage;
+	public:
+		void put_monthly_wage{
+		cout << monthly_wage;
+		}
+		void get_data(){
+			staff::get_data();
+			cout << "Enter monthly wages:" ; cin>> monthly_wage;
+		}
+		void display(){
+			staff::display();
+			cout << "Monthy wage = " << put_monthly_wage;
+		}
+};
+class casual:public typist{
+	int daily_wages;
+	public:
+		void put_daily_wages{
+			cout << daily_wages;
+		}
+		void get_data(){
+			staff::get_data();
+			cout << "Enter daily wages:" ; cin>> daily_wages;
+		}
+    	void display(){
+			staff::display();
+			cout << "daily wage = " << put_daily_wages;
+		}
+};
+
+
+int main(){
+	officer o;
+	o.get_data();
+	o.put_data();
+}
